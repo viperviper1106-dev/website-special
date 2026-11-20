@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Place for You</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<main class="container">
+
+    <section id="awal">
+        <div class="moon">🌙</div>
+        <p class="small">A LITTLE SURPRISE FOR YOU</p>
+
+        <h1>A Little Place<br>for You</h1>
+
+        <p class="intro">
+            There's something I want you to know.
+        </p>
+
+        <button onclick="bukaSurat()">
+            Open this 💌
+        </button>
+    </section>
+
+    <section id="surat" class="hidden">
+
+        <div class="envelope">💌</div>
+
+        <p class="small">A LETTER FOR YOU</p>
+
+        <h2>Hey, You 🌷</h2>
+
+        <p>
+            I'm glad that you exist.
+            Sometimes, ordinary days become
+            a little more meaningful because
+            of someone like you.
+        </p>
+
+        <div class="line"></div>
+
+        <h3>Things I Appreciate About You</h3>
+
+        <p>
+            I appreciate your little habits,
+            the way you tell stories,
+            and all the little things
+            that make you, you.
+        </p>
+
+        <div class="line"></div>
+
+        <h3>A Little Wish for You</h3>
+
+        <p>
+            I hope life treats you kindly.
+            I hope you find happiness in
+            little things and never forget
+            how special you are.
+        </p>
+
+        <div class="line"></div>
+
+        <h3>One Last Thing...</h3>
+
+        <p>
+            Thank you for being part of
+            this little story.
+            Keep being yourself. ✨
+        </p>
+
+        <p class="signature">
+            Made with care ♡
+        </p>
+
+        <button onclick="kembali()">
+            Read again ↺
+        </button>
+
+    </section>
+
+    <button id="musicButton" onclick="putarMusik()">
+        ♫ Play music
+    </button>
+
+</main>
+
+<audio id="musik">
+    <source src="./lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function bukaSurat() {
+    document.getElementById("awal").classList.add("hidden");
+    document.getElementById("surat").classList.remove("hidden");
+}
+
+function kembali() {
+    document.getElementById("surat").classList.add("hidden");
+    document.getElementById("awal").classList.remove("hidden");
+}
+
+function putarMusik() {
+    const musik = document.getElementById("musik");
+    const tombol = document.getElementById("musicButton");
+
+    if (musik.paused) {
+        musik.play().then(() => {
+            tombol.textContent = "♫ Pause music";
+        }).catch(() => {
+            tombol.textContent = "Musik gagal diputar";
+        });
+    } else {
+        musik.pause();
+        tombol.textContent = "♫ Play music";
+    }
+}
+</script>
+
+</body>
+</html>
+
